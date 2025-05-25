@@ -49,16 +49,26 @@ public class Main {
                     System.out.print("Enter Roll No: ");
                     r = sc.nextInt();
                     Student s1 = manager.searchByRoll(r);
-                    if (s1 != null) s1.printReport();
-                    else System.out.println("Not found.");
+                    if (s1 != null)
+                        s1.printReport();
+                    else
+                        System.out.println("Not found.");
                     break;
                 case 4:
                     System.out.print("Enter Name: ");
                     sc.nextLine();
                     String name = sc.nextLine();
-                    Student s2 = manager.searchByName(name);
-                    if (s2 != null) s2.printReport();
-                    else System.out.println("Not found.");
+
+                    Student[] foundStudents = manager.searchByName(name);
+                    if (foundStudents.length > 0){
+                        for (Student s : foundStudents) {
+                            System.out.println("-----------------------");
+                            s.printReport();
+                        }
+                    } 
+                    else {
+                            System.out.println("No students found with that name.");
+                        }
                     break;
                 case 5:
                     System.out.print("Enter Roll No to Delete: ");
@@ -67,7 +77,7 @@ public class Main {
                     break;
                 case 6:
                     System.out.print("Are you sure? (yes/no): ");
-                    sc.nextLine(); 
+                    sc.nextLine();
                     String conf = sc.nextLine();
                     if (conf.equalsIgnoreCase("yes")) {
                         manager.wipeAll();
@@ -80,5 +90,4 @@ public class Main {
                     System.out.println("Invalid choice.");
             }
         }
-    }
-}
+}}

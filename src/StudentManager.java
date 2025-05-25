@@ -24,14 +24,30 @@ public class StudentManager {
         return null;
     }
 
-    public Student searchByName(String name) {
-        for (int i = 0; i < count; i++) {
-            if (students[i].getName().equalsIgnoreCase(name)) {
-                return students[i];
-            }
+    public Student[] searchByName(String name) {
+    // Step 1: Count matches
+    int matchCount = 0;
+    for (int i = 0; i < count; i++) {
+        if (students[i].getName().equalsIgnoreCase(name)) {
+            matchCount++;
         }
-        return null;
     }
+
+    // Step 2: Create array of matched size
+    Student[] matchedStudents = new Student[matchCount];
+
+    // Step 3: Fill array with matching students
+    int index = 0;
+    for (int i = 0; i < count; i++) {
+        if (students[i].getName().equalsIgnoreCase(name)) {
+            matchedStudents[index] = students[i];
+            index++;
+        }
+    }
+
+    return matchedStudents; // will be empty if no matches
+}
+
 
     public void deleteStudent(int roll) {
         for (int i = 0; i < count; i++) {

@@ -11,10 +11,22 @@ public class Student {
         this.marks[2] = english;
     }
 
-    public int getRollNo() { return rollNo; }
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
-    public int[] getMarks() { return marks; }
+    public int getRollNo() {
+        return rollNo;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int[] getMarks() {
+        return marks;
+    }
+    
     public void setMarks(int math, int science, int english) {
         this.marks[0] = math;
         this.marks[1] = science;
@@ -31,11 +43,16 @@ public class Student {
 
     public String getGrade() {
         double avg = getAverage();
-        if (avg >= 90) return "A";
-        if (avg >= 75) return "B";
-        if (avg >= 60) return "C";
-        if (avg >= 45) return "D";
-        return "F";
+        if (avg >= 90 && avg <= 100)
+            return "A";
+        else if (avg >= 75 && avg < 90)
+            return "B";
+        else if (avg >= 60 && avg < 75)
+            return "C";
+        else if (avg >= 45 && avg < 60)
+            return "D";
+        else
+            return "F";
     }
 
     public void printReport() {
