@@ -8,7 +8,6 @@ Features:
 - Grade & Average Calculation
 - Search by Roll No / Name
 - Wipe All Records (with confirmation)
-- Statistics Summary (Average, Grade Distribution)
 
 How to Run:
 1. Compile all Java files from /src/ directory:
